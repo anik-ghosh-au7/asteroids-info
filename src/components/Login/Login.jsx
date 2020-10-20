@@ -75,7 +75,7 @@ const Login = ({ open, loginClosehandler }) => {
       console.log(data);
       //   let response = await httpRequest({
       //     method: "POST",
-      //     url: `${homeUrl}api/users/login`,
+      //     url: `${homeUrl}api/userslogin`,
       //     data,
       //   });
     } catch (err) {
@@ -225,4 +225,5 @@ const Login = ({ open, loginClosehandler }) => {
     </div>
   );
 };
+
 export default Login;
