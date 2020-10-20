@@ -24,11 +24,23 @@ const Login = ({ open, loginClosehandler }) => {
 
   const formik = useFormik({
     initialValues: {
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
     },
 
     validationSchema: Yup.object({
+      firstName: Yup.string()
+        .trim()
+        .min(2, "Mininum 2 characters")
+        .max(10, "Maximum 10 characters")
+        .required("Mandatory!!"),
+      lastName: Yup.string()
+        .trim()
+        .min(2, "Mininum 2 characters")
+        .max(10, "Maximum 10 characters")
+        .required("Mandatory!!"),
       email: Yup.string()
         .trim()
         .email("Invalid email format")
@@ -55,6 +67,8 @@ const Login = ({ open, loginClosehandler }) => {
     e.preventDefault();
     try {
       let data = {
+        firstName: formik.values.firstName,
+        lastName: formik.values.lastName,
         email: formik.values.email,
         password: formik.values.password,
       };
@@ -81,6 +95,55 @@ const Login = ({ open, loginClosehandler }) => {
           </Typography>
           <form className={classes.form} onSubmit={submitHandler}>
             <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="fname"
+                  name="firstName"
+                  variant="outlined"
+                  value={formik.values.firstName}
+                  InputProps={{
+                    className: classes.textFeild,
+                  }}
+                  onChange={onChangeHandle}
+                  error={formik.errors.firstName && formik.touched.firstName}
+                  helperText={formik.errors.firstName}
+                  FormHelperTextProps={{
+                    className: classes.textFeild,
+                  }}
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  InputLabelProps={{
+                    className: classes.textFeild,
+                  }}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  InputLabelProps={{
+                    className: classes.textFeild,
+                  }}
+                  name="lastName"
+                  autoComplete="lname"
+                  value={formik.values.lastName}
+                  InputProps={{
+                    className: classes.textFeild,
+                  }}
+                  onChange={onChangeHandle}
+                  error={formik.errors.lastName && formik.touched.lastName}
+                  helperText={formik.errors.lastName}
+                  FormHelperTextProps={{
+                    className: classes.textFeild,
+                  }}
+                />
+              </Grid>
               <Grid item xs={12}>
                 <TextField
                   variant="outlined"
@@ -94,7 +157,7 @@ const Login = ({ open, loginClosehandler }) => {
                   name="email"
                   autoComplete="email"
                   value={formik.values.email}
-                  inputProps={{
+                  InputProps={{
                     className: classes.textFeild,
                   }}
                   onChange={onChangeHandle}
@@ -118,7 +181,7 @@ const Login = ({ open, loginClosehandler }) => {
                   type="password"
                   id="password"
                   value={formik.values.password}
-                  inputProps={{
+                  InputProps={{
                     className: classes.textFeild,
                   }}
                   onChange={onChangeHandle}
@@ -137,7 +200,12 @@ const Login = ({ open, loginClosehandler }) => {
               variant="outlined"
               color="primary"
               className={classes.submit}
-              disabled={!!formik.errors.email || !!formik.errors.password}
+              disabled={
+                !!formik.errors.firstName ||
+                !!formik.errors.lastName ||
+                !!formik.errors.email ||
+                !!formik.errors.password
+              }
             >
               <Typography color="inherit" style={{ marginTop: "2px" }}>
                 Login
@@ -157,5 +225,4 @@ const Login = ({ open, loginClosehandler }) => {
     </div>
   );
 };
-
 export default Login;
