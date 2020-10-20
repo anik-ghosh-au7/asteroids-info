@@ -61,7 +61,7 @@ const Login = ({ open, loginClosehandler }) => {
       console.log(data);
       //   let response = await httpRequest({
       //     method: "POST",
-      //     url: `${homeUrl}api/users/signup`,
+      //     url: `${homeUrl}api/users/login`,
       //     data,
       //   });
     } catch (err) {
@@ -89,19 +89,19 @@ const Login = ({ open, loginClosehandler }) => {
                   id="email"
                   label="Email Address"
                   InputLabelProps={{
-                    className: classes.textfeild,
+                    className: classes.textFeild,
                   }}
                   name="email"
                   autoComplete="email"
                   value={formik.values.email}
                   InputProps={{
-                    className: classes.textfeild,
+                    className: classes.textFeild,
                   }}
                   onChange={onChangeHandle}
                   error={formik.errors.email && formik.touched.email}
                   helperText={formik.errors.email}
                   FormHelperTextProps={{
-                    className: classes.textfeild,
+                    className: classes.textFeild,
                   }}
                 />
               </Grid>
@@ -113,19 +113,19 @@ const Login = ({ open, loginClosehandler }) => {
                   name="password"
                   label="Password"
                   InputLabelProps={{
-                    className: classes.textfeild,
+                    className: classes.textFeild,
                   }}
                   type="password"
                   id="password"
                   value={formik.values.password}
                   InputProps={{
-                    className: classes.textfeild,
+                    className: classes.textFeild,
                   }}
                   onChange={onChangeHandle}
                   error={formik.errors.password && formik.touched.password}
                   helperText={formik.errors.password}
                   FormHelperTextProps={{
-                    className: classes.textfeild,
+                    className: classes.textFeild,
                   }}
                   autoComplete="current-password"
                 />
