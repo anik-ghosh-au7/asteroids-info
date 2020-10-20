@@ -12,7 +12,7 @@ import theme from "../project.theme";
 
 // components
 import Login from "./Login/Login";
-import Signup from "./Singup/Signup";
+import Signup from "./Signup/Signup";
 const Landing = () => {
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
