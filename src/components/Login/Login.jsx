@@ -94,7 +94,7 @@ const Login = ({ open, loginClosehandler }) => {
                   name="email"
                   autoComplete="email"
                   value={formik.values.email}
-                  InputProps={{
+                  inputProps={{
                     className: classes.textFeild,
                   }}
                   onChange={onChangeHandle}
@@ -118,7 +118,7 @@ const Login = ({ open, loginClosehandler }) => {
                   type="password"
                   id="password"
                   value={formik.values.password}
-                  InputProps={{
+                  inputProps={{
                     className: classes.textFeild,
                   }}
                   onChange={onChangeHandle}
