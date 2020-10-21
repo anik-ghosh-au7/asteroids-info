@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import theme from "../../project.theme";
 
 // styles
-import { useStyles } from "./login.style";
+import { useStyles } from "../Signup/signup.style";
 import {
   Box,
   Button,
