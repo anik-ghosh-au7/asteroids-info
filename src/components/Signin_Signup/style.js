@@ -3,7 +3,7 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 const top = 50;
 const left = 50;
 
-export const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: 400,
@@ -31,3 +31,5 @@ export const useStyles = makeStyles((theme) => ({
     color: fade(theme.palette.common.white, 0.6),
   },
 }));
+
+export default useStyles;

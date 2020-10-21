@@ -11,18 +11,18 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import theme from "../project.theme";
 
 // components
-import Login from "./Login/Login";
-import Signup from "./Signup/Signup";
+import Signin from "./Signin_Signup/Signin";
+import Signup from "./Signin_Signup/Signup";
 const Landing = () => {
-  const [login, setLogin] = useState(false);
+  const [signin, setSignin] = useState(false);
   const [signup, setSignup] = useState(false);
 
   // handlers
-  const loginOpenHandler = () => {
-    setLogin(true);
+  const signinOpenHandler = () => {
+    setSignin(true);
   };
-  const loginClosehandler = () => {
-    setLogin(false);
+  const signinClosehandler = () => {
+    setSignin(false);
   };
 
   const signupOpenHandler = () => {
@@ -59,7 +59,7 @@ const Landing = () => {
                 marginLeft: "5%",
                 paddingRight: "15px",
               }}
-              onClick={loginOpenHandler}
+              onClick={signinOpenHandler}
             >
               <VpnKeyIcon style={{ marginRight: "10px" }} className={""} />{" "}
               <Typography color="inherit" style={{ marginTop: "2px" }}>
@@ -89,7 +89,7 @@ const Landing = () => {
           <Grid item xs></Grid>
         </Grid>
       </MuiThemeProvider>
-      <Login open={login} loginClosehandler={loginClosehandler} />
+      <Signin open={signin} signinClosehandler={signinClosehandler} />
       <Signup open={signup} signupClosehandler={signupClosehandler} />
     </Fragment>
   );

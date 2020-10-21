@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import theme from "../../project.theme";
 
 // styles
-import { useStyles } from "./signup.style";
+import useStyles from "./style";
 import {
   Box,
   Button,
@@ -19,28 +19,16 @@ import {
   Typography,
 } from "@material-ui/core";
 
-const Signup = ({ open, signupClosehandler }) => {
+const Signin = ({ open, signinClosehandler }) => {
   const classes = useStyles();
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
       email: "",
       password: "",
     },
 
     validationSchema: Yup.object({
-      firstName: Yup.string()
-        .trim()
-        .min(2, "Mininum 2 characters")
-        .max(10, "Maximum 10 characters")
-        .required("Mandatory!!"),
-      lastName: Yup.string()
-        .trim()
-        .min(2, "Mininum 2 characters")
-        .max(10, "Maximum 10 characters")
-        .required("Mandatory!!"),
       email: Yup.string()
         .trim()
         .email("Invalid email format")
@@ -67,15 +55,13 @@ const Signup = ({ open, signupClosehandler }) => {
     e.preventDefault();
     try {
       let data = {
-        firstName: formik.values.firstName,
-        lastName: formik.values.lastName,
         email: formik.values.email,
         password: formik.values.password,
       };
       console.log(data);
       //   let response = await httpRequest({
       //     method: "POST",
-      //     url: `${homeUrl}api/users/signup`,
+      //     url: `${homeUrl}api/userslogin`,
       //     data,
       //   });
     } catch (err) {
@@ -90,60 +76,11 @@ const Signup = ({ open, signupClosehandler }) => {
         <MuiThemeProvider theme={theme}>
           <Typography color="primary" component="h1" variant="h5">
             <Box fontWeight="fontWeightBold" m={1}>
-              Sign Up
+              Login
             </Box>
           </Typography>
           <form className={classes.form} onSubmit={submitHandler}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="firstName"
-                  variant="outlined"
-                  value={formik.values.firstName}
-                  InputProps={{
-                    className: classes.textFeild,
-                  }}
-                  onChange={onChangeHandle}
-                  error={formik.errors.firstName && formik.touched.firstName}
-                  helperText={formik.errors.firstName}
-                  FormHelperTextProps={{
-                    className: classes.textFeild,
-                  }}
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  InputLabelProps={{
-                    className: classes.textFeild,
-                  }}
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  InputLabelProps={{
-                    className: classes.textFeild,
-                  }}
-                  name="lastName"
-                  autoComplete="lname"
-                  value={formik.values.lastName}
-                  InputProps={{
-                    className: classes.textFeild,
-                  }}
-                  onChange={onChangeHandle}
-                  error={formik.errors.lastName && formik.touched.lastName}
-                  helperText={formik.errors.lastName}
-                  FormHelperTextProps={{
-                    className: classes.textFeild,
-                  }}
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   variant="outlined"
@@ -166,6 +103,7 @@ const Signup = ({ open, signupClosehandler }) => {
                   FormHelperTextProps={{
                     className: classes.textFeild,
                   }}
+                  autoFocus
                 />
               </Grid>
               <Grid item xs={12}>
@@ -200,15 +138,10 @@ const Signup = ({ open, signupClosehandler }) => {
               variant="outlined"
               color="primary"
               className={classes.submit}
-              disabled={
-                !!formik.errors.firstName ||
-                !!formik.errors.lastName ||
-                !!formik.errors.email ||
-                !!formik.errors.password
-              }
+              disabled={!!formik.errors.email || !!formik.errors.password}
             >
               <Typography color="inherit" style={{ marginTop: "2px" }}>
-                Sign Up
+                Login
               </Typography>
             </Button>
           </form>
@@ -219,11 +152,11 @@ const Signup = ({ open, signupClosehandler }) => {
 
   return (
     <div>
-      <Modal open={open} onClose={signupClosehandler}>
+      <Modal open={open} onClose={signinClosehandler}>
         {body}
       </Modal>
     </div>
   );
 };
 
-export default Signup;
+export default Signin;
