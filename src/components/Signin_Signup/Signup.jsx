@@ -98,7 +98,7 @@ const Signup = ({ open, signupClosehandler }) => {
                 value={formik.values.firstName}
                 InputProps={{
                   classes: {
-                    input: classes.input,
+                    input: classes.textFeild,
                   },
                 }}
                 onChange={onChangeHandle}
@@ -138,7 +138,7 @@ const Signup = ({ open, signupClosehandler }) => {
                 value={formik.values.lastName}
                 InputProps={{
                   classes: {
-                    input: classes.input,
+                    input: classes.textFeild,
                   },
                 }}
                 onChange={onChangeHandle}
@@ -168,7 +168,7 @@ const Signup = ({ open, signupClosehandler }) => {
                 value={formik.values.email}
                 InputProps={{
                   classes: {
-                    input: classes.input,
+                    input: classes.textFeild,
                   },
                 }}
                 onChange={onChangeHandle}
@@ -198,7 +198,7 @@ const Signup = ({ open, signupClosehandler }) => {
                 value={formik.values.password}
                 InputProps={{
                   classes: {
-                    input: classes.input,
+                    input: classes.textFeild,
                   },
                 }}
                 onChange={onChangeHandle}

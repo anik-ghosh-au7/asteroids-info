@@ -83,6 +83,16 @@ const Signin = ({ open, signinClosehandler }) => {
                 fullWidth
                 id="email"
                 label="Email Address"
+                InputProps={{
+                  classes: {
+                    input: classes.textFeild,
+                  },
+                }}
+                FormHelperTextProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
                 InputLabelProps={{
                   classes: {
                     root: classes.textFeild,
@@ -91,19 +101,9 @@ const Signin = ({ open, signinClosehandler }) => {
                 name="email"
                 autoComplete="email"
                 value={formik.values.email}
-                InputProps={{
-                  classes: {
-                    input: classes.input,
-                  },
-                }}
                 onChange={onChangeHandle}
                 error={formik.errors.email && formik.touched.email}
                 helperText={formik.errors.email}
-                FormHelperTextProps={{
-                  classes: {
-                    root: classes.textFeild,
-                  },
-                }}
                 autoFocus
               />
             </Grid>
@@ -114,6 +114,16 @@ const Signin = ({ open, signinClosehandler }) => {
                 fullWidth
                 name="password"
                 label="Password"
+                InputProps={{
+                  classes: {
+                    input: classes.textFeild,
+                  },
+                }}
+                FormHelperTextProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
                 InputLabelProps={{
                   classes: {
                     root: classes.textFeild,
@@ -122,19 +132,9 @@ const Signin = ({ open, signinClosehandler }) => {
                 type="password"
                 id="password"
                 value={formik.values.password}
-                InputProps={{
-                  classes: {
-                    input: classes.input,
-                  },
-                }}
                 onChange={onChangeHandle}
                 error={formik.errors.password && formik.touched.password}
                 helperText={formik.errors.password}
-                FormHelperTextProps={{
-                  classes: {
-                    root: classes.textFeild,
-                  },
-                }}
                 autoComplete="current-password"
               />
             </Grid>
