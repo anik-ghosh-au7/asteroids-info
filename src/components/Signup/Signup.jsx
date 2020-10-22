@@ -107,7 +107,6 @@ const Signup = ({ open, signupClosehandler }) => {
                 }}
                 required
                 fullWidth
-                id="firstName"
                 label="First Name"
                 InputLabelProps={{
                   className: classes.textFeild,
@@ -120,7 +119,6 @@ const Signup = ({ open, signupClosehandler }) => {
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
                 label="Last Name"
                 InputLabelProps={{
                   className: classes.textFeild,
@@ -144,7 +142,6 @@ const Signup = ({ open, signupClosehandler }) => {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
                 label="Email Address"
                 InputLabelProps={{
                   className: classes.textFeild,
@@ -174,7 +171,6 @@ const Signup = ({ open, signupClosehandler }) => {
                   className: classes.textFeild,
                 }}
                 type="password"
-                id="password"
                 value={formik.values.password}
                 InputProps={{
                   className: classes.textFeild,
