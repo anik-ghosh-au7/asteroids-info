@@ -11,8 +11,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import theme from "../project.theme";
 
 // components
-import Signin from "./Signin_Signup/Signin";
-import Signup from "./Signin_Signup/Signup";
+import Signin from "./Signin/Signin";
+import Signup from "./Signup/Signup";
 const Landing = () => {
   const [signin, setSignin] = useState(false);
   const [signup, setSignup] = useState(false);
