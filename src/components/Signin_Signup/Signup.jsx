@@ -102,20 +102,26 @@ const Signup = ({ open, signupClosehandler }) => {
                   variant="outlined"
                   value={formik.values.firstName}
                   InputProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   onChange={onChangeHandle}
                   error={formik.errors.firstName && formik.touched.firstName}
                   helperText={formik.errors.firstName}
                   FormHelperTextProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   required
                   fullWidth
                   id="firstName"
                   label="First Name"
                   InputLabelProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   autoFocus
                 />
@@ -128,19 +134,25 @@ const Signup = ({ open, signupClosehandler }) => {
                   id="lastName"
                   label="Last Name"
                   InputLabelProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   name="lastName"
                   autoComplete="lname"
                   value={formik.values.lastName}
                   InputProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   onChange={onChangeHandle}
                   error={formik.errors.lastName && formik.touched.lastName}
                   helperText={formik.errors.lastName}
                   FormHelperTextProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                 />
               </Grid>
@@ -152,19 +164,25 @@ const Signup = ({ open, signupClosehandler }) => {
                   id="email"
                   label="Email Address"
                   InputLabelProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   name="email"
                   autoComplete="email"
                   value={formik.values.email}
                   InputProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   onChange={onChangeHandle}
                   error={formik.errors.email && formik.touched.email}
                   helperText={formik.errors.email}
                   FormHelperTextProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                 />
               </Grid>
@@ -176,19 +194,25 @@ const Signup = ({ open, signupClosehandler }) => {
                   name="password"
                   label="Password"
                   InputLabelProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   type="password"
                   id="password"
                   value={formik.values.password}
                   InputProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   onChange={onChangeHandle}
                   error={formik.errors.password && formik.touched.password}
                   helperText={formik.errors.password}
                   FormHelperTextProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   autoComplete="current-password"
                 />
@@ -199,7 +223,10 @@ const Signup = ({ open, signupClosehandler }) => {
               fullWidth
               variant="outlined"
               color="primary"
-              className={classes.submit}
+              classes={{
+                root: classes.submit,
+                disabled: classes.disabled,
+              }}
               disabled={
                 !!formik.errors.firstName ||
                 !!formik.errors.lastName ||

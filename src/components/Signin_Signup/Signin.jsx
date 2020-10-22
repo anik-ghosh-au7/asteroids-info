@@ -89,19 +89,25 @@ const Signin = ({ open, signinClosehandler }) => {
                   id="email"
                   label="Email Address"
                   InputLabelProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   name="email"
                   autoComplete="email"
                   value={formik.values.email}
                   InputProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   onChange={onChangeHandle}
                   error={formik.errors.email && formik.touched.email}
                   helperText={formik.errors.email}
                   FormHelperTextProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   autoFocus
                 />
@@ -114,19 +120,25 @@ const Signin = ({ open, signinClosehandler }) => {
                   name="password"
                   label="Password"
                   InputLabelProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   type="password"
                   id="password"
                   value={formik.values.password}
                   InputProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   onChange={onChangeHandle}
                   error={formik.errors.password && formik.touched.password}
                   helperText={formik.errors.password}
                   FormHelperTextProps={{
-                    className: classes.textFeild,
+                    classes: {
+                      root: classes.textFeild,
+                    },
                   }}
                   autoComplete="current-password"
                 />
@@ -137,7 +149,10 @@ const Signin = ({ open, signinClosehandler }) => {
               fullWidth
               variant="outlined"
               color="primary"
-              className={classes.submit}
+              classes={{
+                root: classes.submit,
+                disabled: classes.disabled,
+              }}
               disabled={!!formik.errors.email || !!formik.errors.password}
             >
               <Typography color="inherit" style={{ marginTop: "2px" }}>

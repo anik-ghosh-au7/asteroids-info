@@ -22,8 +22,12 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    color: theme.palette.secondary.main,
+    color: "white",
+    "&$disabled": {
+      color: "red",
+    },
   },
+  disabled: {},
   link: {
     cursor: "pointer",
   },
