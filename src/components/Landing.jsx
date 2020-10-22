@@ -48,7 +48,6 @@ const Landing = () => {
             type="button"
             width="50%"
             variant="outlined"
-            className={""}
             color="inherit"
             style={{
               marginLeft: "5%",
@@ -68,7 +67,6 @@ const Landing = () => {
             width="50%"
             variant="outlined"
             color="inherit"
-            className={""}
             style={{
               marginRight: "15%",
               paddingLeft: "15px",

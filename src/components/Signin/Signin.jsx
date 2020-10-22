@@ -84,19 +84,19 @@ const Signin = ({ open, signinClosehandler }) => {
                 id="email"
                 label="Email Address"
                 InputLabelProps={{
-                  className: classes.textFeild,
+                  className: classes.textFeilds,
                 }}
                 name="email"
                 autoComplete="email"
                 value={formik.values.email}
                 InputProps={{
-                  className: classes.textFeild,
+                  className: classes.textFeilds,
                 }}
                 onChange={onChangeHandle}
                 error={formik.errors.email && formik.touched.email}
                 helperText={formik.errors.email}
                 FormHelperTextProps={{
-                  className: classes.textFeild,
+                  className: classes.textFeilds,
                 }}
               />
             </Grid>
@@ -108,19 +108,19 @@ const Signin = ({ open, signinClosehandler }) => {
                 name="password"
                 label="Password"
                 InputLabelProps={{
-                  className: classes.textFeild,
+                  className: classes.textFeilds,
                 }}
                 type="password"
                 id="password"
                 value={formik.values.password}
                 InputProps={{
-                  className: classes.textFeild,
+                  className: classes.textFeilds,
                 }}
                 onChange={onChangeHandle}
                 error={formik.errors.password && formik.touched.password}
                 helperText={formik.errors.password}
                 FormHelperTextProps={{
-                  className: classes.textFeild,
+                  className: classes.textFeilds,
                 }}
                 autoComplete="current-password"
               />
