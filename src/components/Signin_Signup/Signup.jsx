@@ -1,11 +1,7 @@
 import React from "react";
 import Modal from "@material-ui/core/Modal";
-import { MuiThemeProvider } from "@material-ui/core/styles";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
-// theme
-import theme from "../../project.theme";
 
 // styles
 import useStyles from "./style";
@@ -87,159 +83,157 @@ const Signup = ({ open, signupClosehandler }) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <MuiThemeProvider theme={theme}>
-          <Typography color="primary" component="h1" variant="h5">
-            <Box fontWeight="fontWeightBold" m={1}>
-              Sign Up
-            </Box>
-          </Typography>
-          <form className={classes.form} onSubmit={submitHandler}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="firstName"
-                  variant="outlined"
-                  value={formik.values.firstName}
-                  InputProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  onChange={onChangeHandle}
-                  error={formik.errors.firstName && formik.touched.firstName}
-                  helperText={formik.errors.firstName}
-                  FormHelperTextProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  name="lastName"
-                  autoComplete="lname"
-                  value={formik.values.lastName}
-                  InputProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  onChange={onChangeHandle}
-                  error={formik.errors.lastName && formik.touched.lastName}
-                  helperText={formik.errors.lastName}
-                  FormHelperTextProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  name="email"
-                  autoComplete="email"
-                  value={formik.values.email}
-                  InputProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  onChange={onChangeHandle}
-                  error={formik.errors.email && formik.touched.email}
-                  helperText={formik.errors.email}
-                  FormHelperTextProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  InputLabelProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  type="password"
-                  id="password"
-                  value={formik.values.password}
-                  InputProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  onChange={onChangeHandle}
-                  error={formik.errors.password && formik.touched.password}
-                  helperText={formik.errors.password}
-                  FormHelperTextProps={{
-                    classes: {
-                      root: classes.textFeild,
-                    },
-                  }}
-                  autoComplete="current-password"
-                />
-              </Grid>
+        <Typography color="primary" component="h1" variant="h5">
+          <Box fontWeight="fontWeightBold" m={1}>
+            Sign Up
+          </Box>
+        </Typography>
+        <form className={classes.form} onSubmit={submitHandler}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="fname"
+                name="firstName"
+                variant="outlined"
+                value={formik.values.firstName}
+                InputProps={{
+                  classes: {
+                    input: classes.input,
+                  },
+                }}
+                onChange={onChangeHandle}
+                error={formik.errors.firstName && formik.touched.firstName}
+                helperText={formik.errors.firstName}
+                FormHelperTextProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
+                required
+                fullWidth
+                id="firstName"
+                label="First Name"
+                InputLabelProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
+                autoFocus
+              />
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="outlined"
-              color="primary"
-              classes={{
-                root: classes.submit,
-                disabled: classes.disabled,
-              }}
-              disabled={
-                !!formik.errors.firstName ||
-                !!formik.errors.lastName ||
-                !!formik.errors.email ||
-                !!formik.errors.password
-              }
-            >
-              <Typography color="inherit" style={{ marginTop: "2px" }}>
-                Sign Up
-              </Typography>
-            </Button>
-          </form>
-        </MuiThemeProvider>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                InputLabelProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
+                name="lastName"
+                autoComplete="lname"
+                value={formik.values.lastName}
+                InputProps={{
+                  classes: {
+                    input: classes.input,
+                  },
+                }}
+                onChange={onChangeHandle}
+                error={formik.errors.lastName && formik.touched.lastName}
+                helperText={formik.errors.lastName}
+                FormHelperTextProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                InputLabelProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
+                name="email"
+                autoComplete="email"
+                value={formik.values.email}
+                InputProps={{
+                  classes: {
+                    input: classes.input,
+                  },
+                }}
+                onChange={onChangeHandle}
+                error={formik.errors.email && formik.touched.email}
+                helperText={formik.errors.email}
+                FormHelperTextProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                InputLabelProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
+                type="password"
+                id="password"
+                value={formik.values.password}
+                InputProps={{
+                  classes: {
+                    input: classes.input,
+                  },
+                }}
+                onChange={onChangeHandle}
+                error={formik.errors.password && formik.touched.password}
+                helperText={formik.errors.password}
+                FormHelperTextProps={{
+                  classes: {
+                    root: classes.textFeild,
+                  },
+                }}
+                autoComplete="current-password"
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="outlined"
+            color="primary"
+            classes={{
+              root: classes.submit,
+              disabled: classes.disabled,
+            }}
+            disabled={
+              !!formik.errors.firstName ||
+              !!formik.errors.lastName ||
+              !!formik.errors.email ||
+              !!formik.errors.password
+            }
+          >
+            <Typography color="inherit" style={{ marginTop: "2px" }}>
+              Sign Up
+            </Typography>
+          </Button>
+        </form>
       </div>
     </Container>
   );

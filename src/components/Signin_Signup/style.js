@@ -34,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
   textFeild: {
     color: fade(theme.palette.common.white, 0.6),
   },
+  input: {
+    "&::placeholder": {
+      color: fade(theme.palette.common.white, 0.6),
+    },
+    color: theme.palette.common.white,
+  },
 }));
 
 export default useStyles;
