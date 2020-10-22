@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     "&::placeholder": {
-      color: fade(theme.palette.common.white, 0.6),
+      color: theme.palette.common.white,
     },
     color: theme.palette.common.white,
   },
