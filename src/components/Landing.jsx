@@ -3,12 +3,8 @@ import earth from "../assests/Earth.svg";
 import asteroid1 from "../assests/asteroid1.png";
 import asteroid2 from "../assests/asteroid2.png";
 import { Button, Grid, Typography } from "@material-ui/core";
-import { MuiThemeProvider } from "@material-ui/core/styles";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-
-// theme
-import theme from "../project.theme";
 
 // components
 import Signin from "./Signin/Signin";
@@ -45,50 +41,48 @@ const Landing = () => {
         Are you scared,
         <br /> thinking when the next asteroid might hit the Earth?
       </p>
-      <MuiThemeProvider theme={theme}>
-        <Grid container style={{ marginTop: "40px" }}>
-          <Grid item xs></Grid>
-          <Grid item xs>
-            <Button
-              type="button"
-              width="50%"
-              variant="outlined"
-              className={""}
-              color="inherit"
-              style={{
-                marginLeft: "5%",
-                paddingRight: "15px",
-              }}
-              onClick={signinOpenHandler}
-            >
-              <VpnKeyIcon style={{ marginRight: "10px" }} className={""} />{" "}
-              <Typography color="inherit" style={{ marginTop: "2px" }}>
-                Login
-              </Typography>
-            </Button>
-          </Grid>
-          <Grid item xs>
-            <Button
-              type="button"
-              width="50%"
-              variant="outlined"
-              color="inherit"
-              className={""}
-              style={{
-                marginRight: "15%",
-                paddingLeft: "15px",
-              }}
-              onClick={signupOpenHandler}
-            >
-              <Typography color="inherit" style={{ marginTop: "2px" }}>
-                Signup
-              </Typography>{" "}
-              <LockOutlinedIcon style={{ marginLeft: "10px" }} className={""} />
-            </Button>
-          </Grid>
-          <Grid item xs></Grid>
+      <Grid container style={{ marginTop: "40px" }}>
+        <Grid item xs></Grid>
+        <Grid item xs>
+          <Button
+            type="button"
+            width="50%"
+            variant="outlined"
+            className={""}
+            color="inherit"
+            style={{
+              marginLeft: "5%",
+              paddingRight: "15px",
+            }}
+            onClick={signinOpenHandler}
+          >
+            <VpnKeyIcon style={{ marginRight: "10px" }} className={""} />{" "}
+            <Typography color="inherit" style={{ marginTop: "2px" }}>
+              Signin
+            </Typography>
+          </Button>
         </Grid>
-      </MuiThemeProvider>
+        <Grid item xs>
+          <Button
+            type="button"
+            width="50%"
+            variant="outlined"
+            color="inherit"
+            className={""}
+            style={{
+              marginRight: "15%",
+              paddingLeft: "15px",
+            }}
+            onClick={signupOpenHandler}
+          >
+            <Typography color="inherit" style={{ marginTop: "2px" }}>
+              Signup
+            </Typography>{" "}
+            <LockOutlinedIcon style={{ marginLeft: "10px" }} className={""} />
+          </Button>
+        </Grid>
+        <Grid item xs></Grid>
+      </Grid>
       <Signin open={signin} signinClosehandler={signinClosehandler} />
       <Signup open={signup} signupClosehandler={signupClosehandler} />
     </Fragment>
