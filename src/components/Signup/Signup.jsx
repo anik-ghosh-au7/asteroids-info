@@ -1,3 +1,4 @@
+// packages
 import React from "react";
 import Modal from "@material-ui/core/Modal";
 import { useFormik } from "formik";
@@ -16,10 +17,15 @@ import {
   useTheme,
 } from "@material-ui/core";
 
+// component
 const Signup = ({ open, signupClosehandler }) => {
+  // component style
   const classes = useStyles();
+
+  // project theme
   const theme = useTheme();
 
+  // form fields
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -28,6 +34,7 @@ const Signup = ({ open, signupClosehandler }) => {
       password: "",
     },
 
+    // field validations
     validationSchema: Yup.object({
       firstName: Yup.string()
         .trim()
@@ -55,12 +62,13 @@ const Signup = ({ open, signupClosehandler }) => {
     }),
   });
 
-  // input data handle
+  // input data handler
   const onChangeHandle = (e) => {
     formik.setFieldTouched(e.target.id);
     return formik.handleChange(e);
   };
 
+  // form submit handler
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -81,6 +89,16 @@ const Signup = ({ open, signupClosehandler }) => {
     }
   };
 
+  // modal close handler
+  const closehandler = () => {
+    // clearing feilds & errors
+    formik.resetForm();
+
+    // calling signupClosehandler
+    signupClosehandler();
+  };
+
+  // component body
   const body = (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -212,13 +230,15 @@ const Signup = ({ open, signupClosehandler }) => {
     </Container>
   );
 
+  // modal
   return (
     <div>
-      <Modal open={open} onClose={signupClosehandler}>
+      <Modal open={open} onClose={closehandler}>
         {body}
       </Modal>
     </div>
   );
 };
 
+// component export
 export default Signup;

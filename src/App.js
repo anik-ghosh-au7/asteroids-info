@@ -1,14 +1,28 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 
-// components
-import Landing from "./components/Landing";
+import "./App.css";
+import { AuthProvider } from "./utils/auth";
+import routes from "../src/routes";
+import { PublicRoute, PrivateRoute } from "./components/routeManagments";
 
 function App() {
   return (
     <div className="App">
       <header className="wrapper">
-        <Landing />
+        <AuthProvider>
+          <Router>
+            <Switch>
+              {routes.map((route, idx) => {
+                return !!route.isProtected ? (
+                  <PrivateRoute {...route} key={idx} />
+                ) : (
+                  <PublicRoute {...route} key={idx} />
+                );
+              })}
+            </Switch>
+          </Router>
+        </AuthProvider>
       </header>
     </div>
   );
