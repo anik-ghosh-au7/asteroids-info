@@ -24,7 +24,8 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     color: "white",
     "&$disabled": {
-      color: "red",
+      color: theme.palette.error.main,
+      border: `1px solid ${theme.palette.error.main}`,
     },
   },
   disabled: {},

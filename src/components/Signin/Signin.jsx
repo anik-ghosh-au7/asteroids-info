@@ -98,7 +98,7 @@ const Signin = ({ open, signinClosehandler }) => {
                 error={formik.errors.email && formik.touched.email}
                 helperText={formik.errors.email}
                 FormHelperTextProps={{
-                  style: { color: fade(theme.palette.common.white, 0.6) },
+                  style: { color: theme.palette.error.main },
                 }}
                 autoFocus
               />
@@ -122,7 +122,7 @@ const Signin = ({ open, signinClosehandler }) => {
                 error={formik.errors.password && formik.touched.password}
                 helperText={formik.errors.password}
                 FormHelperTextProps={{
-                  style: { color: fade(theme.palette.common.white, 0.6) },
+                  style: { color: theme.palette.error.main },
                 }}
                 autoComplete="current-password"
               />

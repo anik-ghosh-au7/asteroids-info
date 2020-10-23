@@ -13,10 +13,12 @@ import {
   Grid,
   TextField,
   Typography,
+  useTheme,
 } from "@material-ui/core";
 
 const Signup = ({ open, signupClosehandler }) => {
   const classes = useStyles();
+  const theme = useTheme();
 
   const formik = useFormik({
     initialValues: {
@@ -103,7 +105,7 @@ const Signup = ({ open, signupClosehandler }) => {
                 error={formik.errors.firstName && formik.touched.firstName}
                 helperText={formik.errors.firstName}
                 FormHelperTextProps={{
-                  className: classes.textField,
+                  style: { color: theme.palette.error.main },
                 }}
                 required
                 fullWidth
@@ -133,7 +135,7 @@ const Signup = ({ open, signupClosehandler }) => {
                 error={formik.errors.lastName && formik.touched.lastName}
                 helperText={formik.errors.lastName}
                 FormHelperTextProps={{
-                  className: classes.textField,
+                  style: { color: theme.palette.error.main },
                 }}
               />
             </Grid>
@@ -156,7 +158,7 @@ const Signup = ({ open, signupClosehandler }) => {
                 error={formik.errors.email && formik.touched.email}
                 helperText={formik.errors.email}
                 FormHelperTextProps={{
-                  className: classes.textField,
+                  style: { color: theme.palette.error.main },
                 }}
               />
             </Grid>
@@ -179,7 +181,7 @@ const Signup = ({ open, signupClosehandler }) => {
                 error={formik.errors.password && formik.touched.password}
                 helperText={formik.errors.password}
                 FormHelperTextProps={{
-                  className: classes.textField,
+                  style: { color: theme.palette.error.main },
                 }}
                 autoComplete="current-password"
               />
