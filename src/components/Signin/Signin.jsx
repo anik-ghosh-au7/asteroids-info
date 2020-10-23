@@ -97,7 +97,6 @@ const Signin = ({ open, signinClosehandler }) => {
                 FormHelperTextProps={{
                   className: classes.textFeild,
                 }}
-                autoFocus
               />
             </Grid>
             <Grid item xs={12}>
