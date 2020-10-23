@@ -97,7 +97,6 @@ const Signin = ({ open, signinClosehandler }) => {
                 FormHelperTextProps={{
                   className: classes.textField,
                 }}
-                style={{ color: "white" }}
                 autoFocus
               />
             </Grid>
@@ -123,7 +122,6 @@ const Signin = ({ open, signinClosehandler }) => {
                   className: classes.textField,
                 }}
                 autoComplete="current-password"
-                style={{ color: "white" }}
               />
             </Grid>
           </Grid>
