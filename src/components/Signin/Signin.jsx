@@ -86,7 +86,7 @@ const Signin = ({ open, signinClosehandler }) => {
                 fullWidth
                 label="Email Address"
                 InputLabelProps={{
-                  className: classes.textField,
+                  style: { color: fade(theme.palette.common.white, 0.6) },
                 }}
                 name="email"
                 autoComplete="email"
@@ -111,7 +111,7 @@ const Signin = ({ open, signinClosehandler }) => {
                 name="password"
                 label="Password"
                 InputLabelProps={{
-                  className: classes.textField,
+                  style: { color: fade(theme.palette.common.white, 0.6) },
                 }}
                 type="password"
                 value={formik.values.password}
