@@ -10,13 +10,16 @@ import {
   Button,
   Container,
   CssBaseline,
+  fade,
   Grid,
   TextField,
   Typography,
+  useTheme,
 } from "@material-ui/core";
 
 const Signin = ({ open, signinClosehandler }) => {
   const classes = useStyles();
+  const theme = useTheme();
 
   const formik = useFormik({
     initialValues: {
@@ -89,7 +92,7 @@ const Signin = ({ open, signinClosehandler }) => {
                 autoComplete="email"
                 value={formik.values.email}
                 InputProps={{
-                  className: classes.textField,
+                  style: { color: fade(theme.palette.common.white, 0.6) },
                 }}
                 onChange={onChangeHandle}
                 error={formik.errors.email && formik.touched.email}
@@ -113,7 +116,7 @@ const Signin = ({ open, signinClosehandler }) => {
                 type="password"
                 value={formik.values.password}
                 InputProps={{
-                  className: classes.textField,
+                  style: { color: fade(theme.palette.common.white, 0.6) },
                 }}
                 onChange={onChangeHandle}
                 error={formik.errors.password && formik.touched.password}
