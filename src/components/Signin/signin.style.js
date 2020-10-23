@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
   link: {
     cursor: "pointer",
   },
-  textFeild: {
+  textField: {
     color: fade(theme.palette.common.white, 0.6),
   },
 }));
