@@ -21,8 +21,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 0,
   },
   paper: {
-    maxHeight: "70vh",
-    width: "42%",
+    position: "absolute",
+    top: "12%",
+    maxHeight: "78vh",
+    width: "45%",
     overflow: "auto",
     backgroundColor: fade(theme.palette.common.black, 0.35),
   },
@@ -45,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   search_bar: {
     position: "absolute",
-    top: "15%",
+    top: "12%",
     right: "5%",
   },
   search: {
