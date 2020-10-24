@@ -1,13 +1,12 @@
 import { home } from "../config/webURL";
-// import Landing from "../components/Landing";
-import React from "react";
+import Home from "../pages/Home/Home";
 
 const HomeRoute = [
   {
     path: home,
     exact: true,
     isProtected: true,
-    component: <>Home Page</>,
+    component: Home,
   },
 ];
 

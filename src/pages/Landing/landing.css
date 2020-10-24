@@ -1,0 +1,110 @@
+.earth {
+  height: 40vmin;
+  pointer-events: none;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(178, 231, 157, 0.4);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .earth {
+    animation: earth-spin infinite 60s linear;
+  }
+}
+
+@keyframes earth-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.asteroid1-1 {
+  position: absolute;
+  top: 30%;
+  right: 25%;
+  transform: rotate(var(--rad-1));
+  animation: shake1 2s;
+  animation-iteration-count: infinite;
+}
+.asteroid1-2 {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  transform: rotate(var(--rad-2));
+  animation: shake2 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake1 {
+  0% {
+    transform: translate(1px, 1px) rotate(15deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(14deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(16deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(15deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(16deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(14deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(15deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(14deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(16deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(15deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(14deg);
+  }
+}
+
+@keyframes shake2 {
+  0% {
+    transform: translate(1px, 1px) rotate(240deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(239deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(241deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(240deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(241deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(239deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(240deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(239deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(241deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(240deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(239deg);
+  }
+}

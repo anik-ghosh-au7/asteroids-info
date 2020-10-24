@@ -6,6 +6,9 @@ import { AuthProvider } from "./utils/auth";
 import routes from "../src/routes";
 import { PublicRoute, PrivateRoute } from "./components/routeManagments";
 
+// components
+import Notification from "./components/Notification/Notification";
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +24,7 @@ function App() {
                 );
               })}
             </Switch>
+            <Notification />
           </Router>
         </AuthProvider>
       </header>

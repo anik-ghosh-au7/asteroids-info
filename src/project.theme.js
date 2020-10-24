@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme, fade } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
@@ -16,6 +16,10 @@ const theme = createMuiTheme({
     },
     error: {
       main: "#FF0000",
+    },
+    notification: {
+      main: fade("#ffffff", 0.4),
+      contrastText: fade("#000000", 0.8),
     },
   },
 });

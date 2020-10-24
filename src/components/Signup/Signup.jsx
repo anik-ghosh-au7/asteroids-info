@@ -1,8 +1,19 @@
 // packages
-import React from "react";
+import React, { useCallback } from "react";
 import Modal from "@material-ui/core/Modal";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { withRouter } from "react-router";
+import { connect } from "react-redux";
+
+// config
+import app from "../../config/fire";
+
+// routes
+import { home } from "../../config/webURL";
+
+// redux actions
+import { SET_NOTIFICATION } from "../../redux/actions/notification.action";
 
 // styles
 import { useStyles } from "./signup.style";
@@ -18,7 +29,7 @@ import {
 } from "@material-ui/core";
 
 // component
-const Signup = ({ open, signupClosehandler }) => {
+const Signup = ({ open, signupClosehandler, history, setNotification }) => {
   // component style
   const classes = useStyles();
 
@@ -52,10 +63,10 @@ const Signup = ({ open, signupClosehandler }) => {
         .required("Mandatory!!"),
       password: Yup.string()
         .trim()
-        .min(4, "Minimum 4 characters")
+        .min(6, "Minimum 6 characters")
         .max(20, "Maximum 20 characters")
         .matches(
-          /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,20}$/,
+          /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$/,
           "Atleast one each of number, upper case, lower case & special characters should be present"
         )
         .required("Mandatory!!"),
@@ -69,25 +80,45 @@ const Signup = ({ open, signupClosehandler }) => {
   };
 
   // form submit handler
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    try {
-      let data = {
-        firstName: formik.values.firstName,
-        lastName: formik.values.lastName,
-        email: formik.values.email,
-        password: formik.values.password,
-      };
-      console.log(data);
-      //   let response = await httpRequest({
-      //     method: "POST",
-      //     url: `${homeUrl}api/users/signup`,
-      //     data,
-      //   });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const submitHandler = useCallback(
+    async (e) => {
+      e.preventDefault();
+      try {
+        await app
+          .auth()
+          .createUserWithEmailAndPassword(
+            formik.values.email,
+            formik.values.password
+          );
+
+        let user = app.auth().currentUser;
+
+        await user.updateProfile({
+          displayName: `${formik.values.firstName} ${formik.values.lastName}`,
+        });
+        setNotification({
+          open: true,
+          severity: "success",
+          msg: "Signup Successful",
+        });
+        history.push(home);
+      } catch (err) {
+        setNotification({
+          open: true,
+          severity: "error",
+          msg: err.message,
+        });
+      }
+    },
+    [
+      history,
+      formik.values.email,
+      formik.values.firstName,
+      formik.values.lastName,
+      formik.values.password,
+      setNotification,
+    ]
+  );
 
   // modal close handler
   const closehandler = () => {
@@ -240,5 +271,16 @@ const Signup = ({ open, signupClosehandler }) => {
   );
 };
 
-// component export
-export default Signup;
+const mapActionToProps = (dispatch) => {
+  return {
+    setNotification: (data) => {
+      dispatch({
+        type: SET_NOTIFICATION,
+        payload: { ...data },
+      });
+    },
+  };
+};
+
+// export component
+export default connect(null, mapActionToProps)(withRouter(Signup));

@@ -1,14 +1,17 @@
 import React, { Fragment, useState } from "react";
-import earth from "../assests/Earth.svg";
-import asteroid1 from "../assests/asteroid1.png";
-import asteroid2 from "../assests/asteroid2.png";
+import earth from "../../assests/Earth.svg";
+import asteroid1 from "../../assests/asteroid1.png";
+import asteroid2 from "../../assests/asteroid2.png";
 import { Button, Grid, Typography } from "@material-ui/core";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
+// style
+import "./landing.css";
+
 // components
-import Signin from "./Signin/Signin";
-import Signup from "./Signup/Signup";
+import Signin from "../../components/Signin/Signin";
+import Signup from "../../components/Signup/Signup";
 const Landing = () => {
   const [signin, setSignin] = useState(false);
   const [signup, setSignup] = useState(false);
@@ -55,7 +58,7 @@ const Landing = () => {
             }}
             onClick={signinOpenHandler}
           >
-            <VpnKeyIcon style={{ marginRight: "10px" }} className={""} />{" "}
+            <VpnKeyIcon style={{ marginRight: "10px" }} />{" "}
             <Typography color="inherit" style={{ marginTop: "2px" }}>
               Signin
             </Typography>

@@ -1,5 +1,5 @@
 import { landing } from "../config/webURL";
-import Landing from "../components/Landing";
+import Landing from "../pages/Landing/Landing";
 
 const FormListRoute = [
   {
