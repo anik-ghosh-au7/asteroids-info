@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     maxHeight: "70vh",
-    width: "40%",
+    width: "42%",
     overflow: "auto",
     backgroundColor: fade(theme.palette.common.black, 0.35),
   },
