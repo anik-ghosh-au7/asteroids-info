@@ -53,7 +53,6 @@ const Home = ({ history, setNotification }) => {
       let response = await axios.get(
         `https://api.nasa.gov/neo/rest/v1/neo/sentry/${search}?api_key=${process.env.REACT_APP_NASA_API_KEY}`
       );
-      console.log("data ==>>>> ", response);
       setData([response.data]);
       setNotification({
         open: true,
@@ -78,6 +77,42 @@ const Home = ({ history, setNotification }) => {
     }
   };
 
+  // sort and extract search by date data
+  const sortAndExtract = (obj) => {
+    let keys = Object.keys(obj);
+    let result = [];
+
+    for (var i = keys.length - 1; i >= 0; i--) {
+      if (result.length <= 10) {
+        result = result.concat(obj[keys[i]].slice(0, 10 - result.length));
+      } else {
+        break;
+      }
+    }
+
+    return result;
+  };
+
+  // form handler (serach by date)
+  const submitHandler = async (startDate, endDate) => {
+    try {
+      let response = await axios.get(
+        `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&detailed=true&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      );
+      let data_arr = sortAndExtract(response.data.near_earth_objects);
+      console.log("extracted data ==>>>> ", data_arr);
+      // setData([response.data]);
+      setNotification({
+        open: true,
+        severity: "success",
+        msg: "Search Successful",
+      });
+      // setback(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, [fetchData]);
@@ -94,7 +129,7 @@ const Home = ({ history, setNotification }) => {
           placeholder="Search by Id"
         />
       </div>
-      <SearchByDate />
+      <SearchByDate submitHandler={submitHandler} />
       <div className={classes.wrapper}>
         <Paper className={classes.paper}>
           <List>
@@ -118,24 +153,23 @@ const Home = ({ history, setNotification }) => {
               </ListItem>
             ))}
           </List>
+          {back && (
+            <div className={classes.back_div}>
+              <Button
+                type="submit"
+                variant="outlined"
+                color="primary"
+                className={classes.button}
+                onClick={fetchData}
+              >
+                <ArrowBackOutlinedIcon style={{ marginRight: "10px" }} />{" "}
+                <Typography color="inherit" style={{ marginTop: "2px" }}>
+                  Back
+                </Typography>
+              </Button>
+            </div>
+          )}
         </Paper>
-        {back && (
-          <div className={classes.back_div}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="outlined"
-              color="primary"
-              className={classes.button}
-              onClick={fetchData}
-            >
-              <ArrowBackOutlinedIcon style={{ marginRight: "10px" }} />{" "}
-              <Typography color="inherit" style={{ marginTop: "2px" }}>
-                Back
-              </Typography>
-            </Button>
-          </div>
-        )}
         <div className={classes.signout_div}>
           <Button
             type="submit"

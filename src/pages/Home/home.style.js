@@ -56,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: fade(theme.palette.common.white, 0.5),
   },
   back_div: {
-    marginTop: "25px",
+    float: "right",
+    margin: "0 22px 15px 5px",
   },
 }));
 
