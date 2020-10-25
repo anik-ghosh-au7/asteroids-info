@@ -150,6 +150,13 @@ const Favorites = ({ history, setNotification }) => {
               </ListItem>
             ))}
           </List>
+          {data.length < 1 && (
+            <div className={classes.empty_list}>
+              <Typography color="primary" style={{ marginTop: "2px" }}>
+                List is empty..
+              </Typography>
+            </div>
+          )}
         </Paper>
         <div className={classes.signout_div}>
           <Button

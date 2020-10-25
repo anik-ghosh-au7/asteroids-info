@@ -50,18 +50,7 @@ const useStyles = makeStyles((theme) => ({
     bottom: "5%",
     left: "5%",
   },
-  search_bar: {
-    position: "absolute",
-    top: "20%",
-    right: "5%",
-  },
-  search: {
-    margin: "0",
-    maxWidth: 300,
-    backgroundColor: fade(theme.palette.common.white, 0.5),
-  },
-  back_div: {
-    float: "right",
+  empty_list: {
     margin: "0 22px 15px 5px",
   },
 }));
