@@ -108,7 +108,7 @@ const Home = ({ history, setNotification }) => {
     return result;
   };
 
-  // check favrites
+  // check favorites
   const checkFavorites = (id) => {
     let found = favoritesArr.findIndex((fav_id) => fav_id === id);
     if (found === -1) return false;
@@ -190,6 +190,9 @@ const Home = ({ history, setNotification }) => {
     <Fragment>
       <div className={classes.welcome}>
         <h3>Welcome, {currentUser.displayName.toUpperCase()}</h3>
+      </div>
+      <div className={classes.route}>
+        <h3>..{history.location.pathname}</h3>
       </div>
       <div className={classes.search_bar}>
         <SearchBar

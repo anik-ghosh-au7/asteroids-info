@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   date_picker: {
     backgroundColor: fade(theme.palette.common.white, 0.5),
     position: "absolute",
-    top: "25%",
+    top: "30%",
     right: "5%",
     maxWidth: 245,
     borderRadius: "2%",
