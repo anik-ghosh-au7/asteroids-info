@@ -96,6 +96,18 @@ const Signup = ({ open, signupClosehandler, history, setNotification }) => {
         await user.updateProfile({
           displayName: `${formik.values.firstName} ${formik.values.lastName}`,
         });
+
+        await app.firestore().collection("users").doc(user.uid).set(
+          {
+            id: user.uid,
+            firstName: formik.values.firstName,
+            lastName: formik.values.lastName,
+            email: formik.values.email,
+            favorites: {},
+          },
+          { merge: true }
+        );
+
         setNotification({
           open: true,
           severity: "success",

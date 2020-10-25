@@ -36,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
   },
+  favorite: {
+    cursor: "pointer",
+  },
 }));
 
 export default useStyles;

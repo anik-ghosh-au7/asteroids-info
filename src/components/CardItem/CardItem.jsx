@@ -20,6 +20,8 @@ const CardItem = ({
   average_lunar_distance,
   v_infinity,
   favorite,
+  addOrRemoveFavorites,
+  index,
 }) => {
   const classes = useStyles();
   return (
@@ -68,45 +70,55 @@ const CardItem = ({
             </div>
           </div>
           {/* --------------------------------------- */}
-          <div className={classes.card_title}>
-            <div className={classes.title_subpart}>
-              <Typography variant="subtitle1">Torino Scale:</Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {torino_scale}
-              </Typography>
+          {torino_scale && (
+            <div className={classes.card_title}>
+              <div className={classes.title_subpart}>
+                <Typography variant="subtitle1">Torino Scale:</Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  {torino_scale}
+                </Typography>
+              </div>
+              <div className={classes.title_subpart}>
+                <Typography variant="subtitle1">Palermo Scale:</Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  {palermo_scale_ave}
+                </Typography>
+              </div>
+              <div className={classes.title_subpart}>
+                <Typography variant="subtitle1">Potential Impacts:</Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  {potential_impacts}
+                </Typography>
+              </div>
             </div>
-            <div className={classes.title_subpart}>
-              <Typography variant="subtitle1">Palermo Scale:</Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {palermo_scale_ave}
-              </Typography>
-            </div>
-            <div className={classes.title_subpart}>
-              <Typography variant="subtitle1">Potential Impacts:</Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {potential_impacts}
-              </Typography>
-            </div>
-          </div>
+          )}
           {/* --------------------------------------- */}
-          <div className={classes.card_title}>
-            <div className={classes.title_subpart}>
-              <Typography variant="subtitle1">Avg. Lunar Distance:</Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {average_lunar_distance}
-              </Typography>
+          {average_lunar_distance && (
+            <div className={classes.card_title}>
+              <div className={classes.title_subpart}>
+                <Typography variant="subtitle1">
+                  Avg. Lunar Distance:
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  {average_lunar_distance}
+                </Typography>
+              </div>
+              <div className={classes.title_subpart}>
+                <Typography variant="subtitle1">V_Infinity:</Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  {v_infinity}
+                </Typography>
+              </div>
             </div>
-            <div className={classes.title_subpart}>
-              <Typography variant="subtitle1">V_Infinity:</Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {v_infinity}
-              </Typography>
-            </div>
-          </div>
+          )}
           {/* --------------------------------------- */}
         </CardContent>
       </div>
-      <div>
+      <div
+        onClick={() => addOrRemoveFavorites(sentryId, index)}
+        title="add/remove favorite"
+        className={classes.favorite}
+      >
         {favorite ? <BookmarkOutlinedIcon /> : <BookmarkBorderOutlinedIcon />}
       </div>
     </Card>
