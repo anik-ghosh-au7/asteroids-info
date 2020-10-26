@@ -151,7 +151,7 @@ const Home = ({ history, setNotification }) => {
       setNotification({
         open: true,
         severity: "warning",
-        msg: `${id} removed favorites`,
+        msg: `${id} removed from favorites`,
       });
     }
   };
@@ -163,7 +163,6 @@ const Home = ({ history, setNotification }) => {
         `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&detailed=true&api_key=${process.env.REACT_APP_NASA_API_KEY}`
       );
       let data_arr = sortAndExtract(response.data.near_earth_objects);
-      console.log("extracted data ==>>>> ", data_arr);
       setData(data_arr);
       setNotification({
         open: true,
@@ -172,7 +171,11 @@ const Home = ({ history, setNotification }) => {
       });
       setback(true);
     } catch (err) {
-      console.log(err);
+      setNotification({
+        open: true,
+        severity: "error",
+        msg: "Error occured, please try later",
+      });
     }
   };
 

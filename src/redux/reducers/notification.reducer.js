@@ -13,7 +13,6 @@ const initialState = {
 // reducer logic
 const reducer = (state = initialState, action) => {
   if (action.type === SET_NOTIFICATION) {
-    console.log("notification==>", action.payload);
     return { ...state, ...action.payload };
   }
   if (action.type === CLEAR_NOTIFICATION) {
